@@ -11,3 +11,5 @@ vim.o.autoindent = true
 vim.o.list = true
 vim.o.listchars = "tab:→ ,space:·"
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "

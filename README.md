@@ -21,6 +21,16 @@ I keep my setup minimal, portable, and easy to restore.
 - LSPs: `pyright`, `clangd`
 - Formatters: `black`, `clang-format`, `stylua`, `prettier`
 - Autopairs, Treesitter, basic completion (not AI)
+- Extras:
+  - `comment.lua`
+  - `explorer.lua` (file explorer)
+  - `gitsigns.lua` (git integration),
+  - `lsp_lines.lua` (LSP UI)
+  - `lualine.lua` (statusline)
+  - `luasnip.lua` (snippets)
+  - `mason.lua` (LSP installer)
+  - `telescope.lua` (fuzzy finder)
+  - `whichkey.lua` (keybindings helper)
 
 > See `nvim/lua/` for modular plugin setup.
 

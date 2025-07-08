@@ -7,4 +7,11 @@ require("lazy").setup({
 	{ import = "plugins.lsp_lines" },
 	{ import = "plugins.formatters" },
 	{ import = "plugins.autopairs" },
+	{ import = "plugins.explorer" },
+	{ import = "plugins.telescope" },
+	{ import = "plugins.lualine" },
+	{ import = "plugins.gitsigns" },
+	{ import = "plugins.comment" },
+	{ import = "plugins.whichkey" },
+	{ import = "plugins.luasnip" },
 })
