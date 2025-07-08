@@ -37,7 +37,7 @@ I keep my setup minimal, portable, and easy to restore.
 To use:
 
 ```sh
-ln -sf ~/repos/my-rice/nvim ~/.config/nvim
+ln -sf my-rice/nvim ~/.config/nvim
 ```
 
 ---
@@ -50,7 +50,7 @@ ln -sf ~/repos/my-rice/nvim ~/.config/nvim
 To use:
 
 ```sh
-ln -sf ~/repos/my-rice/xournalpp ~/.config/xournalpp
+ln -sf my-rice/xournalpp ~/.config/xournalpp
 ```
 
 ---
@@ -60,7 +60,7 @@ ln -sf ~/repos/my-rice/xournalpp ~/.config/xournalpp
 Just a simple prompt setup for bash/zsh/fish:
 
 ```sh
-ln -sf ~/repos/my-rice/starship/starship.toml ~/.config/starship.toml
+ln -sf my-rice/starship/starship.toml ~/.config/starship.toml
 ```
 
 ---
