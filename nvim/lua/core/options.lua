@@ -13,3 +13,6 @@ vim.o.listchars = "tab:→ ,space:·"
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
+vim.opt.spell = true
+vim.opt.spelllang = { "en" }
