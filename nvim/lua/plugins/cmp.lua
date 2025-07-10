@@ -43,6 +43,19 @@ return {
 					end, { "i", "s" }),
 
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<C-f>"] = cmp.mapping(function()
+						if cmp.visible() then
+							return
+						end
+
+						cmp.complete({
+							config = {
+								sources = {
+									{ name = "spell", keyword_length = 1 },
+								},
+							},
+						})
+					end, { "i", "c" }),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
