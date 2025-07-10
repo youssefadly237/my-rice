@@ -7,8 +7,9 @@ return {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
-			"L3MON4D3/LuaSnip", -- snippet engine
-			"saadparwaiz1/cmp_luasnip", -- snippet completions
+			"L3MON4D3/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
+			"f3fora/cmp-spell",
 		},
 		config = function()
 			local cmp = require("cmp")
@@ -48,8 +49,57 @@ return {
 					{ name = "luasnip" },
 					{ name = "buffer" },
 					{ name = "path" },
+					{ name = "spell", keyword_length = 3 },
 				}),
+				formatting = {
+					format = function(entry, vim_item)
+						local kind_icons = {
+							Text = "󰉿",
+							Method = "󰆧",
+							Function = "󰊕",
+							Constructor = "",
+							Field = "󰜢",
+							Variable = "󰀫",
+							Class = "󰠱",
+							Interface = "",
+							Module = "",
+							Property = "󰜢",
+							Unit = "󰑭",
+							Value = "󰎠",
+							Enum = "",
+							Keyword = "󰌋",
+							Snippet = "",
+							Color = "󰏘",
+							File = "󰈙",
+							Reference = "󰈇",
+							Folder = "󰉋",
+							EnumMember = "",
+							Constant = "󰏿",
+							Struct = "󰙅",
+							Event = "",
+							Operator = "󰆕",
+							TypeParameter = "",
+						}
+
+						vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind] or "", vim_item.kind)
+
+						local source_labels = {
+							nvim_lsp = "[󰘦 LSP]",
+							luasnip = "[ Snip]",
+							buffer = "[󰦨 Buf]",
+							path = "[ Path]",
+							spell = "[󰓆 Spell]",
+						}
+
+						vim_item.menu = source_labels[entry.source.name] or ("[" .. entry.source.name .. "]")
+						return vim_item
+					end,
+				},
 			})
+
+			-- Enable spell check globally (optional)
+			vim.opt.spell = true
+			vim.opt.spelllang = { "en" }
 		end,
 	},
 }

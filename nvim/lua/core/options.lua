@@ -16,3 +16,10 @@ vim.g.maplocalleader = " "
 
 vim.opt.spell = true
 vim.opt.spelllang = { "en" }
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "python", "lua", "javascript", "c", "cpp", "rust" },
+	callback = function()
+		vim.wo.spell = true
+	end,
+})
