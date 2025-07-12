@@ -6,7 +6,7 @@
   <property name="pressureMultiplier" value="1"/>
   <property name="zoomGesturesEnabled" value="true"/>
   <property name="selectedToolbar" value="Portrait Copy"/>
-  <property name="lastSavePath" value="/media/youssef-adly/Data/Coding/Books"/>
+  <property name="lastSavePath" value="/home/youssef-adly/Downloads"/>
   <property name="lastOpenPath" value="/media/youssef-adly/Data/Medicine/References/Essentials of Human Anatomy &amp; Physiology"/>
   <property name="lastImagePath" value="/home/youssef-adly/Pictures/Screenshots"/>
   <property name="edgePanSpeed" value="20"/>
@@ -16,7 +16,7 @@
   <property name="displayDpi" value="72"/>
   <property name="mainWndWidth" value="942"/>
   <property name="mainWndHeight" value="522"/>
-  <property name="maximized" value="false"/>
+  <property name="maximized" value="true"/>
   <property name="showToolbar" value="true"/>
   <property name="showSidebar" value="false"/>
   <property name="sidebarWidth" value="50"/>
@@ -251,13 +251,13 @@
       <attribute name="drawingType" type="string" value="default"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="128"/>
-      <attribute name="size" type="string" value="MEDIUM"/>
+      <attribute name="size" type="string" value="THIN"/>
     </data>
     <data name="image">
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="ffa7f070"/>
+      <attribute name="color" type="hex" value="ff3b5dc9"/>
       <attribute name="drawingType" type="string" value="default"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="255"/>
