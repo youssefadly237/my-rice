@@ -7,6 +7,7 @@ return {
 			"clangd",
 			"typescript-language-server",
 			"eslint-lsp",
+			"lua-language-server",
 
 			-- Formatters
 			"black",

@@ -1,5 +1,5 @@
 require("lazy").setup({
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{ "catppuccin/nvim",            name = "catppuccin", priority = 1000 },
 	{ import = "plugins.cmp" },
 	{ import = "plugins.lsp" },
 	{ import = "plugins.treesitter" },
@@ -14,4 +14,5 @@ require("lazy").setup({
 	{ import = "plugins.comment" },
 	{ import = "plugins.whichkey" },
 	{ import = "plugins.luasnip" },
+	{ import = "plugins.aerial" },
 })

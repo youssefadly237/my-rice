@@ -1,5 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
+	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp", -- Needed to bridge LSP and nvim-cmp
 	},
@@ -24,6 +25,34 @@ return {
 				["rust-analyzer"] = {
 					checkOnSave = {
 						command = "clippy", -- optional, adds linting on save
+					},
+				},
+			},
+		})
+
+		-- Lua LSP (for Neovim config/dev)
+		lspconfig.lua_ls.setup({
+			capabilities = capabilities,
+			settings = {
+				Lua = {
+					format = {
+						enable = true,
+						default_config = {
+							indent_style = "tab",
+						},
+					},
+					runtime = {
+						version = "LuaJIT", -- for Neovim
+					},
+					diagnostics = {
+						globals = { "vim" }, -- no undefined 'vim'
+					},
+					workspace = {
+						library = vim.api.nvim_get_runtime_file("", true),
+						checkThirdParty = false,
+					},
+					telemetry = {
+						enable = false,
 					},
 				},
 			},
