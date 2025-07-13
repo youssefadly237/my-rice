@@ -129,8 +129,8 @@ behind     = "󰁅"
 diverged   = "󰡛"
 untracked  = ""
 stashed    = ""
-modified   = ""
-staged = ' 󰱒 \($count\)'
+modified   = " "
+staged     = '󰱒 \($count\)'
 renamed    = ""
 deleted    = ""
 
