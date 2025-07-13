@@ -23,3 +23,14 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.wo.spell = true
 	end,
 })
+
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldenable = false
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "python",
+	callback = function()
+		vim.opt_local.foldmethod = "indent"
+	end,
+})
