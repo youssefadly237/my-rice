@@ -3,21 +3,22 @@ return {
 	opts = {
 		ensure_installed = {
 			-- LSPs
-			"pyright",
 			"clangd",
-			"typescript-language-server",
 			"eslint-lsp",
 			"lua-language-server",
+			"pyright",
+			"typescript-language-server",
+
+			-- Linters
+			"eslint_d",
+			"markdownlint",
+			"pylint",
 
 			-- Formatters
 			"black",
 			"clang-format",
-			"stylua",
 			"prettier",
-
-			-- Linters
-			"pylint",
-			"markdownlint",
+			"stylua",
 		},
 	},
 }

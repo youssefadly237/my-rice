@@ -1,5 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
+	version = false,
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp", -- Needed to bridge LSP and nvim-cmp
@@ -15,6 +16,11 @@ return {
 
 		-- C/C++ LSP
 		lspconfig.clangd.setup({
+			capabilities = capabilities,
+		})
+
+		-- TypeScript/JavaScript LSP
+		lspconfig.ts_ls.setup({
 			capabilities = capabilities,
 		})
 
