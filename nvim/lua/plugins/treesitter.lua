@@ -41,11 +41,23 @@ return {
 			"gitattributes",
 
 			-- Extras
-			"latex",
+			"latex", -- depends on tree-sitter-cli
 		},
 		auto_install = true,
 		highlight = {
 			enable = true,
 		},
 	},
+	config = function(_, opts)
+		require("nvim-treesitter.configs").setup(opts)
+
+		vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+			callback = function()
+				local lang = vim.treesitter.language.get_lang(vim.bo.filetype)
+				if lang and require("nvim-treesitter.parsers").has_parser(lang) then
+					vim.cmd("TSBufEnable highlight")
+				end
+			end,
+		})
+	end,
 }
