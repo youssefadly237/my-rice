@@ -10,12 +10,28 @@ return {
 		local formatting = null_ls.builtins.formatting
 		local diagnostics = null_ls.builtins.diagnostics
 
+		local function get_active_venv_pylint()
+			local python_path = vim.fn.trim(vim.fn.system("which python"))
+			if python_path == "" then
+				return "pylint"
+			end
+			local pylint_path = python_path:gsub("python$", "pylint")
+			if vim.fn.executable(pylint_path) == 1 then
+				return pylint_path
+			end
+			return "pylint"
+		end
+
 		null_ls.setup({
 			sources = {
 				-- C/C++
 				formatting.clang_format,
 				-- Python
 				formatting.black,
+				diagnostics.pylint.with({
+					command = get_active_venv_pylint(),
+					extra_args = { "--output-format=json" },
+				}),
 				-- Lua
 				formatting.stylua,
 				-- JavaScript/TypeScript
