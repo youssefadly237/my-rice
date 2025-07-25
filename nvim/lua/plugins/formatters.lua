@@ -46,6 +46,9 @@ return {
 					filetypes = { "markdown", "md" },
 				}),
 				diagnostics.markdownlint,
+				formatting.sqlfluff.with({
+					extra_args = { "--dialect", "postgres" },
+				}),
 			},
 			on_attach = function(client, bufnr)
 				if client.supports_method("textDocument/formatting") then

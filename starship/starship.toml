@@ -123,16 +123,16 @@ format = '[[ $symbol $branch ](fg:crust bg:yellow)]($style)'
 [git_status]
 style = "bg:yellow"
 format = '[[($all_status$ahead_behind )](fg:crust bg:yellow)]($style)'
-conflicted = "󰞇"
-ahead      = "󰁝"
-behind     = "󰁅"
-diverged   = "󰡛"
-untracked  = ""
-stashed    = ""
-modified   = "  "
-staged     = '󰱒 \($count\)'
-renamed    = ""
-deleted    = ""
+conflicted = " 󰞇"
+ahead      = " 󰁝"
+behind     = " 󰁅"
+diverged   = " 󰡛"
+untracked  = " "
+stashed    = " "
+modified   = " "
+staged     = ' 󰱒 \($count\)'
+renamed    = " "
+deleted    = " "
 
 [git_commit]
 tag_symbol = '  '
