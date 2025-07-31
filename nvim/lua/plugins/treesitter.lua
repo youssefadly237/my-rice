@@ -1,5 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	-- btw do not use gcc on windows, just install clang
 	build = ":TSUpdate",
 	opts = {
 		ensure_installed = {
