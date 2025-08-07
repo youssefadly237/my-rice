@@ -15,4 +15,5 @@ require("lazy").setup({
 	{ import = "plugins.whichkey" },
 	{ import = "plugins.luasnip" },
 	{ import = "plugins.aerial" },
+	{ import = "plugins.gitconflict" },
 })

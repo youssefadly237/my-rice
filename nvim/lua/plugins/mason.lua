@@ -19,7 +19,7 @@ return {
 			"clang-format",
 			"prettier",
 			"stylua",
-			"sqlfluff",
+			"sql-formatter",
 		},
 	},
 }
