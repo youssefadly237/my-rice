@@ -109,10 +109,6 @@ return {
 					end,
 				},
 			})
-
-			-- Enable spell check globally (optional)
-			vim.opt.spell = true
-			vim.opt.spelllang = { "en" }
 		end,
 	},
 }

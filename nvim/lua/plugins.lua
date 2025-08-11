@@ -1,4 +1,4 @@
-require("lazy").setup({
+return {
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{ import = "plugins.cmp" },
 	{ import = "plugins.lsp" },
@@ -16,4 +16,4 @@ require("lazy").setup({
 	{ import = "plugins.luasnip" },
 	{ import = "plugins.aerial" },
 	{ import = "plugins.gitconflict" },
-})
+}

@@ -15,12 +15,14 @@ map("n", "zw", "zw", { desc = "Mark word as incorrect" })
 
 -- LSP Code Action
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action", silent = true })
+map("n", "<leader>w", ":w<CR>", { desc = "Save" })
+map("n", "<leader>q", ":q<CR>", { desc = "Quit" })
 
 -- Diagnostic panel
-vim.keymap.set("n", "<leader>dp", "<cmd>Telescope diagnostics<CR>", { desc = "Open Diagnostics Panel" })
+map("n", "<leader>dp", "<cmd>Telescope diagnostics<CR>", { desc = "Open Diagnostics Panel" })
 
 -- Copy Diagnostics
-vim.keymap.set({ "n", "v" }, "<leader>cc", function()
+map({ "n", "v" }, "<leader>cc", function()
 	local start_line, end_line
 
 	if vim.fn.mode() == "v" or vim.fn.mode() == "V" then
@@ -63,3 +65,19 @@ vim.keymap.set({ "n", "v" }, "<leader>cc", function()
 	vim.fn.setreg("+", final)
 	vim.notify("Copied diagnostics with severity to clipboard")
 end, { desc = "Copy diagnostics (with severity) on line or selection" })
+
+-- Window splitting and management
+map("n", "<leader>v", ":vsplit<CR>", { desc = "Vertical split", silent = true })
+map("n", "<leader>h", ":split<CR>", { desc = "Horizontal split", silent = true })
+
+-- Window navigation
+map("n", "<C-h>", "<C-w>h", { desc = "Move to left window", silent = true })
+map("n", "<C-j>", "<C-w>j", { desc = "Move to bottom window", silent = true })
+map("n", "<C-k>", "<C-w>k", { desc = "Move to top window", silent = true })
+map("n", "<C-l>", "<C-w>l", { desc = "Move to right window", silent = true })
+
+-- Window resizing
+map("n", "<C-Up>", ":resize +2<CR>", { desc = "Increase window height", silent = true })
+map("n", "<C-Down>", ":resize -2<CR>", { desc = "Decrease window height", silent = true })
+map("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease window width", silent = true })
+map("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase window width", silent = true })

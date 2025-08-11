@@ -1,5 +1,4 @@
 require("core.options")
-require("core.lazy")
-require("plugins")
+require("core.lazy-setup")
 require("core.theme")
 require("core.keymap")
