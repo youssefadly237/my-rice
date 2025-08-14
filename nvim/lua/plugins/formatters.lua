@@ -26,16 +26,20 @@ return {
 			sources = {
 				-- C/C++
 				formatting.clang_format,
+
 				-- Python
 				formatting.black,
 				diagnostics.pylint.with({
 					command = get_active_venv_pylint(),
 					extra_args = { "--output-format=json" },
 				}),
+
 				-- Lua
 				formatting.stylua,
+
 				-- JavaScript/TypeScript
 				formatting.prettier,
+
 				-- Markdown
 				require("none-ls.diagnostics.eslint_d").with({
 					condition = function(utils)
@@ -46,9 +50,16 @@ return {
 					filetypes = { "markdown", "md" },
 				}),
 				diagnostics.markdownlint,
+
+				-- sql
 				formatting.sql_formatter.with({
 					extra_args = { "--language", "postgresql" },
-				})
+				}),
+
+				-- Bash
+				formatting.shfmt.with({
+					extra_args = { "-i", "4" },
+				}),
 			},
 			on_attach = function(client, bufnr)
 				if client.supports_method("textDocument/formatting") then

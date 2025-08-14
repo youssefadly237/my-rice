@@ -29,8 +29,14 @@ return {
 			capabilities = capabilities,
 			settings = {
 				["rust-analyzer"] = {
-					checkOnSave = {
-						command = "clippy", -- optional, adds linting on save
+					diagnostics = {
+						enable = true,
+						experimental = {
+							enable = true,
+						},
+					},
+					check = {
+						command = "clippy",
 					},
 				},
 			},
@@ -62,6 +68,10 @@ return {
 					},
 				},
 			},
+		})
+		-- Bash LSP
+		lspconfig.bashls.setup({
+			capabilities = capabilities,
 		})
 	end,
 }

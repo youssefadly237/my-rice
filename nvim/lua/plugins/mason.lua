@@ -8,6 +8,7 @@ return {
 			"lua-language-server",
 			"pyright",
 			"typescript-language-server",
+			"bash-language-server",
 
 			-- Linters
 			"eslint_d",
@@ -20,6 +21,7 @@ return {
 			"prettier",
 			"stylua",
 			"sql-formatter",
+			"shrmt",
 		},
 	},
 }

@@ -1,13 +1,13 @@
 # my-rice
 
-> I’m just saving some configs so I don’t have to redo everything later.
+> I'm just saving some configs so I don't have to redo everything later.
 > Not perfect, but works.
 
 ---
 
 ## Philosophy
 
-This is a personal rice setup. It’s not a dotfiles framework.
+This is a personal rice setup. It's not a dotfiles framework.
 I keep my setup minimal, portable, and easy to restore.
 
 ---
@@ -18,19 +18,24 @@ I keep my setup minimal, portable, and easy to restore.
 
 - Plugin manager: [lazy.nvim](https://github.com/folke/lazy.nvim)
 - Colorscheme: [catppuccin](https://github.com/catppuccin/nvim)
-- LSPs: `pyright`, `clangd`
+- LSPs: `pyright`, `clangd`, `ts-ls`, `rust-analyzer`, `lua-ls`, `bashls`
 - Formatters: `black`, `clang-format`, `stylua`, `prettier`
+- Linters:
+  - `pylint` automatically uses the active Python virtual environment's `pylint` binary if available (that is much better than global (it wont be aware of your venv), just install pylint locally with dev flag); falls back to global `pylint`
+
 - Autopairs, Treesitter, basic completion (not AI)
 - Extras:
+  - `autopairs`
+  - `treesitter`
   - `comment.lua`
   - `explorer.lua` (file explorer)
-  - `gitsigns.lua` (git integration),
-  - `lsp_lines.lua` (LSP UI)
+  - `gitsigns.lua` (Git integration)
+  - `lsp_lines.lua` (LSP UI improvements)
   - `lualine.lua` (statusline)
   - `luasnip.lua` (snippets)
   - `mason.lua` (LSP installer)
   - `telescope.lua` (fuzzy finder)
-  - `whichkey.lua` (keybindings helper)
+  - `whichkey.lua` (keybinding helper)
 
 > See `nvim/lua/` for modular plugin setup.
 
@@ -61,6 +66,16 @@ Just a simple prompt setup for bash/zsh/fish:
 
 ```sh
 ln -sf my-rice/starship/starship.toml ~/.config/starship.toml
+```
+
+---
+
+### tmux
+
+simple tmux config with `tpm`
+
+```sh
+ln -sf my-rice/tmux/tmux.conf ~/.tmux.conf
 ```
 
 ---
