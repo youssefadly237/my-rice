@@ -1,9 +1,9 @@
 local ok, catppuccin = pcall(require, "catppuccin")
 if not ok then
-	return
+  return
 end
 
 catppuccin.setup({
-	flavour = "mocha",
+  flavour = "mocha",
 })
 vim.cmd.colorscheme("catppuccin")
