@@ -92,7 +92,14 @@ return {
               Event = "",
               Operator = "󰆕",
               TypeParameter = "",
+              Trait = "󰛩",
             }
+
+            -- rename Interface => Trait for rust
+            local buf_ft = vim.bo.filetype
+            if buf_ft == "rust" and vim_item.kind == "Interface" then
+              vim_item.kind = "Trait"
+            end
 
             vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind] or "", vim_item.kind)
 

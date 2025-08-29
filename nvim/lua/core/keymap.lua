@@ -70,6 +70,12 @@ end, { desc = "Copy diagnostics (with severity) on line or selection" })
 map("n", "<leader>v", ":vsplit<CR>", { desc = "Vertical split", silent = true })
 map("n", "<leader>h", ":split<CR>", { desc = "Horizontal split", silent = true })
 
+-- LSP navigation
+map("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
+map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
+map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
+map("n", "gr", vim.lsp.buf.references, { desc = "Go to References" })
+
 -- Window navigation
 map("n", "<C-h>", "<C-w>h", { desc = "Move to left window", silent = true })
 map("n", "<C-j>", "<C-w>j", { desc = "Move to bottom window", silent = true })
