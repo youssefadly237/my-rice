@@ -1,3 +1,4 @@
+# if you are someone checking the repo do not use this. this damn stupid, do not store passwords as plain text and simply use ssh/config I forgot that it exits while making this
 # make sure you have vps_config.toml in the home, it wont work if not bro, who it is supposed to know
 # [server]
 # ip = "1.2.3.4"
