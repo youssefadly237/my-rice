@@ -4,14 +4,21 @@ venvon() {
   local -a venvs display_names
   local choice
   
-  # Find venvs in current directory only (including hidden dirs)
+  setopt local_options null_glob
+  
+  setopt local_options null_glob
   for dir in */ .*/; do
     [[ -d "$dir" ]] || continue
-    [[ "$dir" == "./" || "$dir" == "../" ]] && continue  # skip . and ..
-    dir="${dir%/}"  # remove trailing slash
+    [[ "$dir" == "./" || "$dir" == "../" ]] && continue
+    dir="${dir%/}"
     
     # Check if it's a valid venv (has bin/activate or Scripts/activate)
     if [[ -f "$dir/bin/activate" ]] || [[ -f "$dir/Scripts/activate" ]]; then
+      # Skip if this is the currently active venv
+      local dir_realpath=$(realpath "$dir" 2>/dev/null)
+      local current_venv_realpath=$(realpath "$VIRTUAL_ENV" 2>/dev/null)
+      [[ -n "$VIRTUAL_ENV" && "$dir_realpath" == "$current_venv_realpath" ]] && continue
+      
       venvs+=("$dir")
       display_names+=("$dir")
     fi
@@ -21,10 +28,17 @@ venvon() {
   if command -v poetry >/dev/null 2>&1; then
     local poetry_venv
     if poetry_venv=$(poetry env info --path 2>/dev/null) && [[ -f "$poetry_venv/bin/activate" ]]; then
-      # Check if this poetry venv is different from local ones
+      # Check if this poetry venv is different from local ones and not currently active
       local is_duplicate=0
+      local poetry_venv_realpath=$(realpath "$poetry_venv" 2>/dev/null)
+      local current_venv_realpath=$(realpath "$VIRTUAL_ENV" 2>/dev/null)
+      
+      # Skip if it's the currently active venv
+      [[ -n "$VIRTUAL_ENV" && "$poetry_venv_realpath" == "$current_venv_realpath" ]] && is_duplicate=1
+      
+      # Check against local venvs
       for existing in "${venvs[@]}"; do
-        [[ "$(realpath "$existing" 2>/dev/null)" == "$(realpath "$poetry_venv" 2>/dev/null)" ]] && is_duplicate=1 && break
+        [[ "$(realpath "$existing" 2>/dev/null)" == "$poetry_venv_realpath" ]] && is_duplicate=1 && break
       done
       if ((! is_duplicate)); then
         venvs+=("$poetry_venv")
