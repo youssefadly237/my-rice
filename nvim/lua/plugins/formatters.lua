@@ -37,6 +37,16 @@ return {
         -- Lua
         formatting.stylua,
 
+        -- Rust
+        {
+          method = null_ls.methods.FORMATTING,
+          filetypes = { "rust" },
+          generator = null_ls.formatter({
+            command = "rustfmt",
+            to_stdin = true,
+          }),
+        },
+
         -- JavaScript/TypeScript
         formatting.prettier,
 
@@ -60,6 +70,17 @@ return {
         formatting.shfmt.with({
           extra_args = { "-i", "4" },
         }),
+
+        -- TOML
+        {
+          method = null_ls.methods.FORMATTING,
+          filetypes = { "toml" },
+          generator = null_ls.formatter({
+            command = "taplo",
+            args = { "format", "-" },
+            to_stdin = true,
+          }),
+        },
       },
       on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
