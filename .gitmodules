@@ -1,0 +1,3 @@
+[submodule "xournalpp/plugins/vi-xournalpp"]
+	path = xournalpp/plugins/vi-xournalpp
+	url = https://github.com/youssefadly237/vi-xournalpp.git
