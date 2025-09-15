@@ -4,25 +4,23 @@ local map = vim.keymap.set
 map("n", "<C-s>", ":set spell!<CR>", { desc = "Toggle spell check", silent = true })
 map("i", "<C-s>", "<C-O>:set spell!<CR>", { desc = "Toggle spell check", silent = true })
 
--- Navigate spelling mistakes
-map("n", "]s", "]s", { desc = "Next spelling mistake" })
-map("n", "[s", "[s", { desc = "Previous spelling mistake" })
-
--- Suggest and manage dictionary
+-- Spell navigation
 map("n", "z=", "z=", { desc = "Suggest spelling corrections" })
 map("n", "zg", "zg", { desc = "Mark word as correct" })
 map("n", "zw", "zw", { desc = "Mark word as incorrect" })
 
--- LSP Code Action
+-- LSP mappings
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action", silent = true })
+
+-- Basic file operations
 map("n", "<leader>w", ":w<CR>", { desc = "Save" })
 map("n", "<leader>q", ":q<CR>", { desc = "Quit" })
 
 -- Diagnostic panel
 map("n", "<leader>dp", "<cmd>Telescope diagnostics<CR>", { desc = "Open Diagnostics Panel" })
 
--- Copy Diagnostics
-map({ "n", "v" }, "<leader>cc", function()
+-- Copy diagnostics
+map({ "n", "v" }, "<leader>cd", function()
   local start_line, end_line
 
   if vim.fn.mode() == "v" or vim.fn.mode() == "V" then
@@ -63,8 +61,8 @@ map({ "n", "v" }, "<leader>cc", function()
 
   local final = table.concat(lines_with_issues, "\n\n")
   vim.fn.setreg("+", final)
-  vim.notify("Copied diagnostics with severity to clipboard")
-end, { desc = "Copy diagnostics (with severity) on line or selection" })
+  vim.notify("Copied " .. #lines_with_issues .. " diagnostic(s) to clipboard")
+end, { desc = "Copy diagnostics on line or selection" })
 
 -- Window splitting and management
 map("n", "<leader>v", ":vsplit<CR>", { desc = "Vertical split", silent = true })
