@@ -19,6 +19,11 @@ map("n", "<leader>q", ":q<CR>", { desc = "Quit" })
 -- Diagnostic panel
 map("n", "<leader>dp", "<cmd>Telescope diagnostics<CR>", { desc = "Open Diagnostics Panel" })
 
+-- Formatting
+map("n", "f", function()
+  vim.lsp.buf.format({ async = true })
+end, { desc = "LSP format" })
+
 -- Copy diagnostics
 map({ "n", "v" }, "<leader>cd", function()
   local start_line, end_line

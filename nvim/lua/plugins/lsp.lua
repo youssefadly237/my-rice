@@ -88,5 +88,15 @@ return {
     lspconfig.taplo.setup({
       capabilities = capabilities,
     })
+
+    -- Typst LSP (Tinymist)
+    lspconfig.tinymist.setup({
+      capabilities = capabilities,
+      settings = {
+        formatterMode = "typstyle",
+        exportPdf = "onType",
+        semanticTokens = "disable",
+      },
+    })
   end,
 }
