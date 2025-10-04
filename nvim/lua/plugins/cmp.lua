@@ -62,7 +62,7 @@ return {
           { name = "luasnip" },
           { name = "buffer" },
           { name = "path" },
-          { name = "spell",   keyword_length = 3 },
+          { name = "spell", keyword_length = 3 },
         }),
         formatting = {
           format = function(entry, vim_item)

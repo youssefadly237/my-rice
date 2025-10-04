@@ -6,27 +6,38 @@ return {
     "hrsh7th/cmp-nvim-lsp", -- Needed to bridge LSP and nvim-cmp
   },
   config = function()
-    local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local lsp = vim.lsp
+
+    -- Disable formatting for LSPs where null-ls handles it
+    local function disable_formatting(client)
+      client.server_capabilities.documentFormattingProvider = false
+      client.server_capabilities.documentRangeFormattingProvider = false
+    end
+
+    -- Helper function to configure and enable LSP
+    local function setup(name, config)
+      lsp.config(name, vim.tbl_extend("force", { capabilities = capabilities }, config or {}))
+      lsp.enable(name)
+    end
 
     -- Python LSP
-    lspconfig.pyright.setup({
-      capabilities = capabilities,
+    setup("pyright", {
+      on_attach = disable_formatting,
     })
 
     -- C/C++ LSP
-    lspconfig.clangd.setup({
-      capabilities = capabilities,
+    setup("clangd", {
+      on_attach = disable_formatting,
     })
 
     -- TypeScript/JavaScript LSP
-    lspconfig.ts_ls.setup({
-      capabilities = capabilities,
+    setup("ts_ls", {
+      on_attach = disable_formatting,
     })
 
     -- Rust
-    lspconfig.rust_analyzer.setup({
-      capabilities = capabilities,
+    setup("rust_analyzer", {
       settings = {
         ["rust-analyzer"] = {
           diagnostics = {
@@ -51,8 +62,8 @@ return {
     })
 
     -- Lua LSP (for Neovim config/dev)
-    lspconfig.lua_ls.setup({
-      capabilities = capabilities,
+    setup("lua_ls", {
+      on_attach = disable_formatting,
       settings = {
         Lua = {
           format = {
@@ -63,10 +74,10 @@ return {
             size = 2,
           },
           runtime = {
-            version = "LuaJIT", -- for Neovim
+            version = "LuaJIT",
           },
           diagnostics = {
-            globals = { "vim" }, -- no undefined 'vim'
+            globals = { "vim" },
           },
           workspace = {
             library = vim.api.nvim_get_runtime_file("", true),
@@ -80,22 +91,60 @@ return {
     })
 
     -- Bash LSP
-    lspconfig.bashls.setup({
-      capabilities = capabilities,
+    setup("bashls", {
+      on_attach = disable_formatting,
     })
 
-    -- TOML LSP (Taplo)
-    lspconfig.taplo.setup({
-      capabilities = capabilities,
+    -- TOML LSP (Taplo) - disable formatting since we have null-ls taplo formatter
+    setup("taplo", {
+      on_attach = disable_formatting,
     })
 
     -- Typst LSP (Tinymist)
-    lspconfig.tinymist.setup({
-      capabilities = capabilities,
+    setup("tinymist", {
       settings = {
         formatterMode = "typstyle",
         exportPdf = "onType",
         semanticTokens = "disable",
+      },
+    })
+
+    -- HTML LSP
+    setup("html")
+
+    -- CSS LSP
+    setup("cssls")
+
+    -- LaTeX LSP (TexLab with TexLive 2025 integration)
+    setup("texlab", {
+      settings = {
+        texlab = {
+          build = {
+            executable = "latexmk",
+            args = {
+              "-pdf",
+              "-interaction=nonstopmode",
+              "-synctex=1",
+              "-outdir=build",
+              "%f",
+            },
+            onSave = false,
+            forwardSearchAfter = false,
+          },
+          forwardSearch = {
+            executable = "zathura",
+            args = { "--synctex-forward", "%l:1:%f", "%p" },
+          },
+          chktex = {
+            onOpenAndSave = true,
+            onEdit = false,
+          },
+          formatterLineLength = 80,
+          latexFormatter = "latexindent",
+          latexindent = {
+            modifyLineBreaks = false,
+          },
+        },
       },
     })
   end,

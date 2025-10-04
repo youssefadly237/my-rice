@@ -1,27 +1,49 @@
 return {
-  "williamboman/mason.nvim",
-  opts = {
-    ensure_installed = {
-      -- LSPs
-      "clangd",
-      "eslint-lsp",
-      "lua-language-server",
-      "pyright",
-      "typescript-language-server",
-      "bash-language-server",
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ui = {
+        border = "rounded",
+      },
+    },
+  },
 
-      -- Linters
-      "eslint_d",
-      "markdownlint",
-      "pylint",
+  {
+    "williamboman/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = {
+        "clangd",
+        "eslint",
+        "lua_ls",
+        "pyright",
+        "ts_ls",
+        "bashls",
+        "html",
+        "cssls",
+        "taplo",
+        "texlab",
+      },
+      automatic_installation = true,
+    },
+  },
 
-      -- Formatters
-      "black",
-      "clang-format",
-      "prettier",
-      "stylua",
-      "sql-formatter",
-      "shrmt",
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    opts = {
+      ensure_installed = {
+        "black",
+        "clang-format",
+        "prettier",
+        "stylua",
+        "markdownlint",
+        "pylint",
+        "sql-formatter",
+        "shfmt",
+        "taplo",
+        "latexindent",
+      },
+      auto_update = false,
+      run_on_start = true,
     },
   },
 }
