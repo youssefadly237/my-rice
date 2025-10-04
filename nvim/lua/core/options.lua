@@ -34,6 +34,8 @@ vim.o.sidescrolloff = 8
 vim.o.wrap = false
 vim.o.cursorline = true
 vim.o.signcolumn = "yes"
+vim.o.splitright = true
+vim.o.splitbelow = true
 
 -- Completion
 vim.o.wildmenu = true
@@ -45,11 +47,15 @@ vim.o.updatetime = 300
 vim.o.timeoutlen = 500
 
 vim.o.list = true
-vim.o.listchars = "tab:→ ,space:·"
+vim.o.listchars = "tab:→ ,space:·,trail:·,nbsp:␣"
 
 -- Leader keys
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
+-- Disable netrw (using file explorer plugin instead)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- Spell checking
 vim.opt.spell = true

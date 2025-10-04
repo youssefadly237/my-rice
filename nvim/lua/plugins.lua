@@ -17,4 +17,5 @@ return {
   { import = "plugins.aerial" },
   { import = "plugins.gitconflict" },
   { import = "plugins.undotree" },
+  { import = "plugins.bufferline" },
 }

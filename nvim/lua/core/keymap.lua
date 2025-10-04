@@ -20,7 +20,7 @@ map("n", "<leader>q", ":q<CR>", { desc = "Quit" })
 map("n", "<leader>dp", "<cmd>Telescope diagnostics<CR>", { desc = "Open Diagnostics Panel" })
 
 -- Formatting
-map("n", "f", function()
+map("n", "<C-f>", function()
   vim.lsp.buf.format({ async = true })
 end, { desc = "LSP format" })
 
