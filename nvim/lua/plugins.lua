@@ -11,6 +11,7 @@ return {
   { import = "plugins.telescope" },
   { import = "plugins.lualine" },
   { import = "plugins.gitsigns" },
+  { import = "plugins.diffview" },
   { import = "plugins.comment" },
   { import = "plugins.whichkey" },
   { import = "plugins.luasnip" },

@@ -1,6 +1,17 @@
 return {
   "lewis6991/gitsigns.nvim",
   config = function()
-    require("gitsigns").setup()
+    require("gitsigns").setup({
+      current_line_blame = false,
+      current_line_blame_opts = {
+        virt_text = true,
+        virt_text_pos = "eol",
+        delay = 500,
+      },
+    })
   end,
+  keys = {
+    { "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle Git Blame" },
+    { "<leader>gB", "<cmd>Gitsigns blame_line<cr>", desc = "Show Full Blame" },
+  },
 }
