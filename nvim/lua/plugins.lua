@@ -19,4 +19,5 @@ return {
   { import = "plugins.gitconflict" },
   { import = "plugins.undotree" },
   { import = "plugins.bufferline" },
+  { import = "plugins.fugitive" },
 }
