@@ -32,6 +32,7 @@ return {
       "toml",
       "markdown",
       "markdown_inline",
+      "sql",
 
       -- Build tools / Git
       "regex",
