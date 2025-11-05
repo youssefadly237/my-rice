@@ -20,4 +20,6 @@ return {
   { import = "plugins.undotree" },
   { import = "plugins.bufferline" },
   { import = "plugins.fugitive" },
+  { import = "plugins.virt-column" },
+  { import = "plugins.blankline" },
 }
