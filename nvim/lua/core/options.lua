@@ -36,7 +36,7 @@ vim.o.cursorline = true
 vim.o.signcolumn = "yes"
 vim.o.splitright = true
 vim.o.splitbelow = true
-vim.o.winborder = 'single'
+vim.o.winborder = "single"
 
 -- Completion
 vim.o.wildmenu = true

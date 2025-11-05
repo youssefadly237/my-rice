@@ -44,6 +44,9 @@ return {
 
       -- Extras
       "latex", -- depends on tree-sitter-cli
+      -- Assembly parsers
+      "asm",
+      "nasm",
     },
     auto_install = true,
     highlight = {

@@ -147,5 +147,11 @@ return {
         },
       },
     })
+
+    -- Assembly LSP
+    setup("asm_lsp", {
+      on_attach = disable_formatting,
+      filetypes = { "asm", "s", "asm64" },
+    })
   end,
 }

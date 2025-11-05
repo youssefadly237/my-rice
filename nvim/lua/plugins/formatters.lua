@@ -81,6 +81,9 @@ return {
             to_stdin = true,
           }),
         },
+
+        -- Assembly
+        formatting.asmfmt,
       },
     })
   end,
