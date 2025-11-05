@@ -22,4 +22,5 @@ return {
   { import = "plugins.fugitive" },
   { import = "plugins.virt-column" },
   { import = "plugins.blankline" },
+  { import = "plugins.navic" },
 }

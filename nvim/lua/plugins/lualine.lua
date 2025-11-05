@@ -1,7 +1,9 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
   config = function()
+    local navic = require("nvim-navic")
+
     local function python_venv()
       local v = os.getenv("VIRTUAL_ENV")
       if not v then
@@ -9,7 +11,7 @@ return {
       end
       local parent = vim.fn.fnamemodify(v, ":h:t")
       local name = vim.fn.fnamemodify(v, ":t")
-      return (" %s/%s"):format(parent, name)
+      return (" %s/%s"):format(parent, name)
     end
 
     local function node_version()
@@ -24,7 +26,7 @@ return {
       local ver = handle:read("*l")
       handle:close()
       if ver then
-        return (" %s"):format(ver)
+        return (" %s"):format(ver)
       end
       return ""
     end
@@ -49,6 +51,14 @@ return {
           {
             "filename",
             path = 1,
+          },
+          {
+            function()
+              return navic.get_location()
+            end,
+            cond = function()
+              return navic.is_available()
+            end,
           },
         },
         lualine_x = {
