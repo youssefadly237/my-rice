@@ -54,7 +54,7 @@ map({ "n", "v" }, "<leader>cd", function()
     if lnum >= start_line and lnum <= end_line then
       local line_text = vim.api.nvim_buf_get_lines(0, d.lnum, d.lnum + 1, false)[1]
       local severity = severity_names[d.severity] or "Unknown"
-      local message = ("[%d] %s\n%s: %s"):format(lnum, line_text, severity, d.message)
+      local message = ("[%d] %s\n%s (%s): %s"):format(lnum, line_text, severity, d.source or "Unknown", d.message)
       table.insert(lines_with_issues, message)
     end
   end

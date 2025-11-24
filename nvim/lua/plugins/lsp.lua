@@ -153,5 +153,15 @@ return {
       on_attach = disable_formatting,
       filetypes = { "asm", "s", "asm64" },
     })
+
+    -- Arduino LSP (depends on clangd && arudino-cli)
+    setup("arduino_language_server", {
+      cmd = {
+        "arduino-language-server",
+        "-fqbn",
+        "esp32:esp32:nodemcu-32s",
+      },
+      filetypes = { "ino", "arduino" },
+    })
   end,
 }

@@ -44,6 +44,7 @@ return {
 
       -- Extras
       "latex", -- depends on tree-sitter-cli
+      "arduino",
       -- Assembly parsers
       "asm",
       "nasm",

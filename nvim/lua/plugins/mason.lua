@@ -43,6 +43,7 @@ return {
         "taplo",
         "latexindent",
         "asmfmt",
+        "arduino_language_server",
       },
       auto_update = false,
       run_on_start = true,
