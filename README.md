@@ -1,4 +1,4 @@
-# my-rice
+# Dotfiles
 
 > I'm just saving some configs so I don't have to redo everything later.
 > Not perfect, but works.
@@ -7,8 +7,10 @@
 
 ## Philosophy
 
-This is a personal rice setup. It's not a dotfiles framework.
+This is a personal config setup.
 I keep my setup minimal, portable, and easy to restore.
+planning to migrate to `twpayne/chezmoi` asap
+
 
 ---
 
