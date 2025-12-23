@@ -1,90 +1,48 @@
-# Dotfiles
+# dotfiles
 
-> I'm just saving some configs so I don't have to redo everything later.
-> Not perfect, but works.
+I'm just saving some configs so I don't have to redo everything later.
+Not perfect, but works for me.
 
----
-
-## Philosophy
-
-This is a personal config setup.
-I keep my setup minimal, portable, and easy to restore.
-planning to migrate to `twpayne/chezmoi` asap
-
+These dotfiles utilizes [`twpayne/chezmoi`](https://github.com/twpayne/chezmoi)
+go give em a star
 
 ---
 
 ## Includes
 
-### Neovim
+- [alacritty](./dot_config/alacritty/)
+- [inkscape](./dot_config/inkscape/)
+- [mako](./dot_config/mako/)
+- [Neovim](./dot_config/nvim/README.md)
+- [waybar](./dot_config/waybar/)
+- [Xournal++](./dot_config/xournalpp/)
+- [Starship](./dot_config/starship.toml)
+- [tmux](./dot_tmux.conf)
+- [niri](./dot_config/niri/)
+- [zsh](./dot_zshrc)
+- [fuzzel](./dot_config/fuzzel/)
 
-- Plugin manager: [lazy.nvim](https://github.com/folke/lazy.nvim)
-- Colorscheme: [catppuccin](https://github.com/catppuccin/nvim)
-- LSPs: `pyright`, `clangd`, `ts-ls`, `rust-analyzer`, `lua-ls`, `bashls`
-- Formatters: `black`, `clang-format`, `stylua`, `prettier`
-- Linters:
-  - `pylint` automatically uses the active Python virtual environment's `pylint` binary if available (that is much better than global (it wont be aware of your venv), just install pylint locally with dev flag); falls back to global `pylint`
+## Installation
 
-- Autopairs, Treesitter, basic completion (not AI)
-- Extras:
-  - `autopairs`
-  - `treesitter`
-  - `comment.lua`
-  - `explorer.lua` (file explorer)
-  - `gitsigns.lua` (Git integration)
-  - `lsp_lines.lua` (LSP UI improvements)
-  - `lualine.lua` (statusline)
-  - `luasnip.lua` (snippets)
-  - `mason.lua` (LSP installer)
-  - `telescope.lua` (fuzzy finder)
-  - `whichkey.lua` (keybinding helper)
+1. install [`chezmoi`](https://www.chezmoi.io/install/)
+2. initialize with this repo
 
-> See `nvim/lua/` for modular plugin setup.
+   ```bash
+   chezmoi init https://github.com/youssefadly237/dotfiles.git
+   ```
 
-To use:
+3. apply the parts you need or do full apply if you want
+   - for a partial install (only single software (e.g. Xournal++))
 
-```sh
-ln -sf my-rice/nvim ~/.config/nvim
-```
+     ```bash
+     chezmoi apply ~/.config/xournalpp
+     ```
 
----
+   - for full install
 
-### Xournal++
-
-- Custom palettes: `Adly.gpl`, `Adly2.gpl` # TODO rename them later
-- Toolbar layout
-
-To use:
-
-```sh
-ln -sf my-rice/xournalpp ~/.config/xournalpp
-```
-
----
-
-### Starship Prompt
-
-Just a simple prompt setup for bash/zsh/fish:
-
-```sh
-ln -sf my-rice/starship/starship.toml ~/.config/starship.toml
-```
-
----
-
-### tmux
-
-simple tmux config with `tpm`
-
-```sh
-ln -sf my-rice/tmux/tmux.conf ~/.tmux.conf
-```
-
----
-
-## Installation Script?
-
-Not yet. For now, just symlink manually. I might add `setup.sh` or `dotbot` later.
+     ```bash
+     chezmoi apply
+     ```
 
 ---
 

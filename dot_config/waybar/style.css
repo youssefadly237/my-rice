@@ -1,0 +1,141 @@
+@import "mocha.css";
+
+* {
+  font-family: JetBrains Mono Nerd Font;
+  font-size: 17px;
+  min-height: 0;
+}
+
+#waybar {
+  background: transparent;
+  color: @text;
+  margin: 5px 5px;
+}
+
+#workspaces {
+  border-radius: 1rem;
+  margin: 5px;
+  background-color: @surface0;
+  margin-left: 1rem;
+  padding: 0rem 1rem;
+}
+
+#workspaces button {
+  color: @lavender;
+  border-radius: 1rem;
+  padding: 0.4rem;
+}
+
+#workspaces button.active {
+  color: @sky;
+  border-radius: 1rem;
+}
+
+#workspaces button:hover {
+  color: @sapphire;
+  border-radius: 1rem;
+}
+
+#custom-music,
+#custom-pomodoro,
+#tray,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#custom-lock,
+#custom-power,
+#custom-launcher {
+  background-color: @surface0;
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+}
+
+#custom-cpu,
+#custom-gpu,
+#custom-ram {
+  background-color: @surface0;
+  padding: 0.5rem 0.5rem;
+  margin: 5px 0;
+}
+
+#custom-cpu {
+  color: @red;
+}
+
+#custom-gpu {
+  color: @green;
+}
+
+#custom-ram {
+  color: @yellow;
+}
+
+#clock {
+  color: @mauve;
+  border-radius: 0px 1rem 1rem 0px;
+}
+
+#battery {
+  margin-right: 1rem;
+  color: @green;
+    border-radius: 0px 1rem 1rem 0px;
+}
+
+#battery.charging {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+#backlight {
+  border-radius: 0;
+}
+
+#pulseaudio {
+  color: @maroon;
+  border-radius: 1rem 0px 0px 1rem;
+  margin-left: 1rem;
+}
+
+#custom-music {
+  color: @mauve;
+  border-radius: 1rem;
+}
+
+#custom-pomodoro {
+  border-radius: 1rem;
+  margin-left: 0.5rem;
+}
+
+#custom-pomodoro.running { color: @green; }
+#custom-pomodoro.paused  { color: @yellow; }
+#custom-pomodoro.waiting { color: @red; }
+
+#custom-lock {
+  border-radius: 1rem 0px 0px 1rem;
+  color: @lavender;
+}
+
+#custom-power {
+  margin-right: 1rem;
+  border-radius: 0px 1rem 1rem 0px;
+  color: @red;
+}
+
+#custom-launcher {
+  border-radius: 1rem 0px 0px 1rem;
+  padding: 0.5rem 1rem;
+  color: @mauve;
+}
+
+#tray {
+  margin-right: 1rem;
+  border-radius: 1rem;
+}

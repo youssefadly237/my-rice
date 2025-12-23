@@ -1,6 +1,10 @@
 # === PROMPT ===
 export PATH="$HOME/.cargo/bin:$PATH"
-eval "$(starship init zsh)"  # Use Starship instead of adam1 if preferred
+eval "$(starship init zsh)"
+
+if ! pgrep -u "$USER" ssh-agent >/dev/null; then
+    eval "$(ssh-agent -s)"
+fi
 
 # === HISTORY ===
 setopt histignorealldups sharehistory
@@ -9,11 +13,15 @@ SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
 # === KEYBINDING ===
-bindkey -e  # Emacs-style keybindings
+bindkey -v
 
 # === COMPLETION ===
 autoload -Uz compinit
 compinit
+
+zstyle ':completion:*' expand 'yes'
+zstyle ':completion:*' squeeze-slashes 'yes'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # Optional: nicer completion UI (can be skipped if using plugins)
 zstyle ':completion:*' auto-description 'specify: %d'
@@ -22,6 +30,7 @@ zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' verbose true
+
 
 # === ENV + PATH ===
 export PATH="$HOME/development/flutter/bin:$HOME/Apps/android-studio/bin:$HOME/.spicetify:$HOME/.local/bin:$HOME/Apps/typst-x86_64-unknown-linux-musl:/opt/nvim-linux-x86_64/bin:$PATH"
@@ -35,7 +44,6 @@ export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
 
-source /etc/profile.d/gradle.sh
 source "$HOME/.cargo/env"
 
 export PATH="$PATH:/usr/local/go/bin"
@@ -46,6 +54,10 @@ export PATH="$PATH:$GOBIN"
 export ANDROID_HOME="$HOME/Android/Sdk"
 export NDK_HOME="$ANDROID_HOME/ndk/29.0.13599879"
 export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:/opt/android-studio/bin:$PATH"
+
+export MASONBIN="$HOME/.local/share/nvim/mason/bin"
+
+source /etc/profile.d/gradle.sh
 
 export RUST_BACKTRACE=1
 
@@ -59,12 +71,28 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-alias spotdl='~/.venvs/spotdl-env/bin/spotdl'
+alias nivm='nvim'
+
+alias vmon='krfb-virtualmonitor --name PhoneDisplay --resolution 2460x1080 --password 123 --port 5900'
+
+# Arduino
+alias a-monitor='arduino-cli monitor -p /dev/ttyUSB0 --config 115200 -b esp32:esp32:node32s'
+alias a-compile='arduino-cli compile -b esp32:esp32:node32s'
+alias a-uploud='arduino-cli upload -b esp32:esp32:node32s -p /dev/ttyUSB0'
 
 # custom functions
-source ~/.zsh/functions/vps_ssh.zsh
 source ~/.zsh/functions/venvon.zsh
+source ~/.zsh/functions/update-discord.zsh
+source ~/.zsh/functions/tts_convert.zsh
+
+function clearpycache() {
+  echo "Clearing all __pycache__ folders under $(pwd)..."
+  find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null
+  echo "All cleared up"
+}
+
+alias getidf='source $HOME/development/esp-idf/export.sh'
+
 
 # === XMAKE ===
 [[ -f "$HOME/.xmake/profile" ]] && source "$HOME/.xmake/profile"
-

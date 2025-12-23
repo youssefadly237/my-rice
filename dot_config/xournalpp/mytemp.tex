@@ -1,13 +1,14 @@
-% Optimized template for chemistry/math content
 \documentclass[varwidth=true, crop, border=5pt]{standalone}
 
-% Essential packages only
 \usepackage{chemfig}
 \usepackage{mhchem}
 \usepackage{amsmath}
 \usepackage{xcolor}
 \usepackage{scontents}
 \usepackage{ifthen}
+\usepackage{tikz}
+\usetikzlibrary{trees, positioning}
+\usetikzlibrary{mindmap}
 
 % Color definition
 \definecolor{xpp_font_color}{HTML}{%%XPP_TEXT_COLOR%%}
@@ -18,11 +19,11 @@ $%%XPP_TOOL_INPUT%%$
 \end{scontents}
 
 \begin{document}
-	% Blank input check
-	\newlength{\pheight}
-	\settoheight{\pheight}{\getstored[1]{preview}}%
-	\ifthenelse{\pheight=0pt}{\GenericError{}{xournalpp:blankformula}{}{}}{}
-	
-	% Render content
-	\textcolor{xpp_font_color}{\getstored[1]{preview}}
+% Blank input check
+\newlength{\pheight}
+\settoheight{\pheight}{\getstored[1]{preview}}%
+\ifthenelse{\pheight=0pt}{\GenericError{}{xournalpp:blankformula}{}{}}{}
+
+% Render content
+\textcolor{xpp_font_color}{\getstored[1]{preview}}
 \end{document}

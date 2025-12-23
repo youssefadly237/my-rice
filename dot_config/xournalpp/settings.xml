@@ -3,7 +3,7 @@
 <settings>
   <property name="pressureSensitivity" value="true"/>
   <property name="minimumPressure" value="0.05"/>
-  <property name="pressureMultiplier" value="1"/>
+  <property name="pressureMultiplier" value="1.31"/>
   <property name="zoomGesturesEnabled" value="true"/>
   <property name="selectedToolbar" value="Portrait Copy"/>
   <property name="lastSavePath" value=""/>
@@ -13,9 +13,9 @@
   <property name="edgePanMaxMult" value="5"/>
   <property name="zoomStep" value="10"/>
   <property name="zoomStepScroll" value="2"/>
-  <property name="displayDpi" value="72"/>
-  <property name="mainWndWidth" value="950"/>
-  <property name="mainWndHeight" value="525"/>
+  <property name="displayDpi" value="-1"/>
+  <property name="mainWndWidth" value="945"/>
+  <property name="mainWndHeight" value="966"/>
   <property name="maximized" value="false"/>
   <property name="showToolbar" value="true"/>
   <property name="showSidebar" value="false"/>
@@ -64,7 +64,7 @@
   <property name="autoloadMostRecent" value="false"/>
   <property name="autoloadPdfXoj" value="true"/>
   <property name="defaultSaveName" value="%F-Note-%H-%M"/>
-  <property name="defaultPdfExportName" value="%{name}_annotated"/>
+  <property name="defaultPdfExportName" value="%{file}"/>
   <property name="autosaveEnabled" value="true"/>
   <property name="autosaveTimeout" value="3"/>
   <property name="addHorizontalSpace" value="false"/>
@@ -101,10 +101,10 @@
   <property name="preloadPagesAfter" value="5"/>
   <property name="eagerPageCleanup" value="true"/>
   <!--Config for new pages-->
-  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSettings=true&#10;size=595.275591x841.889764&#10;backgroundType=lined&#10;backgroundColor=#ffffff&#10;"/>
+  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=false&#10;copyLastPageSettings=true&#10;size=595.275591x841.889764&#10;backgroundType=lined&#10;backgroundColor=#ffffff&#10;"/>
   <property name="sizeUnit" value=""/>
-  <property name="audioFolder" value=""/>
-  <property name="audioInputDevice" value="-1"/>
+  <property name="audioFolder" value="/home/youssef-adly/Music/xournal_notes"/>
+  <property name="audioInputDevice" value="4"/>
   <property name="audioOutputDevice" value="-1"/>
   <property name="audioSampleRate" value="44100"/>
   <property name="audioGain" value="1"/>
@@ -123,8 +123,8 @@
   <property name="inputSystemTPCButton" value="false"/>
   <property name="inputSystemDrawOutsideWindow" value="true"/>
   <property name="preferredLocale" value=""/>
-  <property name="useSpacesForTab" value="true"/>
-  <property name="numberOfSpacesForTab" value="2"/>
+  <property name="useSpacesForTab" value="false"/>
+  <property name="numberOfSpacesForTab" value="4"/>
   <property name="laserPointerFadeOutTime" value="500"/>
   <property name="stabilizerAveragingMethod" value="0"/>
   <property name="stabilizerPreprocessor" value="0"/>
@@ -135,10 +135,10 @@
   <property name="stabilizerMass" value="5"/>
   <property name="stabilizerCuspDetection" value="true"/>
   <property name="stabilizerFinalizeStroke" value="true"/>
-  <property name="colorPalette" value="/home/youssef-adly/.config/xournalpp/palettes/Adly.gpl"/>
+  <property name="colorPalette" value="/home/youssef-adly/.config/xournalpp/palettes/frappe.gpl"/>
   <property name="latexSettings.autoCheckDependencies" value="true"/>
   <property name="latexSettings.defaultText" value="x^2"/>
-  <property name="latexSettings.globalTemplatePath" value="/home/youssef-adly/.config/xournalpp/chemfig_temp.tex"/>
+  <property name="latexSettings.globalTemplatePath" value="/home/youssef-adly/.config/xournalpp/mytemp.tex"/>
   <property name="latexSettings.genCmd" value="pdflatex -halt-on-error -interaction=nonstopmode '{}'"/>
   <property name="latexSettings.sourceViewThemeId" value="classic"/>
   <property name="latexSettings.editorFont" value="Monospace 12"/>
@@ -151,7 +151,7 @@
   <property name="latexSettings.externalEditorAutoConfirm" value="false"/>
   <property name="latexSettings.externalEditorCmd" value=""/>
   <property name="latexSettings.temporaryFileExt" value="tex"/>
-  <property name="font" font="Sans" size="12"/>
+  <property name="font" font="JetBrains Mono" size="12"/>
   <data name="buttonConfig">
     <data name="default">
       <attribute name="color" type="hex" value="ff000000"/>
@@ -175,10 +175,12 @@
       <attribute name="tool" type="string" value="none"/>
     </data>
     <data name="stylus">
-      <attribute name="tool" type="string" value="none"/>
+      <attribute name="eraserMode" type="string" value="none"/>
+      <attribute name="size" type="string" value="none"/>
+      <attribute name="tool" type="string" value="eraser"/>
     </data>
     <data name="stylus2">
-      <attribute name="tool" type="string" value="none"/>
+      <attribute name="tool" type="string" value="hand"/>
     </data>
     <data name="touch">
       <attribute name="device" type="string" value=""/>
@@ -191,9 +193,41 @@
       <attribute name="deviceClass" type="int" value="0"/>
       <attribute name="deviceSource" type="int" value="0"/>
     </data>
+    <data name="Wacom One by Wacom S Pen">
+      <attribute name="deviceClass" type="int" value="2"/>
+      <attribute name="deviceSource" type="int" value="1"/>
+    </data>
+    <data name="Wayland Finger Scrolling">
+      <attribute name="deviceClass" type="int" value="1"/>
+      <attribute name="deviceSource" type="int" value="6"/>
+    </data>
     <data name="Wayland Pointer">
       <attribute name="deviceClass" type="int" value="1"/>
       <attribute name="deviceSource" type="int" value="0"/>
+    </data>
+    <data name="Wayland Wheel Scrolling">
+      <attribute name="deviceClass" type="int" value="1"/>
+      <attribute name="deviceSource" type="int" value="0"/>
+    </data>
+    <data name="xwayland-pointer:8">
+      <attribute name="deviceClass" type="int" value="1"/>
+      <attribute name="deviceSource" type="int" value="0"/>
+    </data>
+    <data name="xwayland-relative-pointer:10">
+      <attribute name="deviceClass" type="int" value="1"/>
+      <attribute name="deviceSource" type="int" value="0"/>
+    </data>
+    <data name="xwayland-relative-pointer:8">
+      <attribute name="deviceClass" type="int" value="1"/>
+      <attribute name="deviceSource" type="int" value="0"/>
+    </data>
+    <data name="xwayland-tablet stylus:10">
+      <attribute name="deviceClass" type="int" value="2"/>
+      <attribute name="deviceSource" type="int" value="1"/>
+    </data>
+    <data name="xwayland-tablet stylus:8">
+      <attribute name="deviceClass" type="int" value="4"/>
+      <attribute name="deviceSource" type="int" value="5"/>
     </data>
   </data>
   <data name="tools">
@@ -218,17 +252,17 @@
     </data>
     <data name="eraser">
       <attribute name="drawingType" type="string" value="default"/>
-      <attribute name="size" type="string" value="MEDIUM"/>
+      <attribute name="size" type="string" value="VERY_BIG"/>
       <attribute name="type" type="string" value="default"/>
     </data>
     <data name="hand">
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="highlighter">
-      <attribute name="color" type="hex" value="ffffff00"/>
+      <attribute name="color" type="hex" value="fffab387"/>
       <attribute name="drawingType" type="string" value="default"/>
       <attribute name="fill" type="int" value="0"/>
-      <attribute name="fillAlpha" type="int" value="128"/>
+      <attribute name="fillAlpha" type="int" value="240"/>
       <attribute name="size" type="string" value="MEDIUM"/>
     </data>
     <data name="image">
@@ -245,11 +279,11 @@
       <attribute name="size" type="string" value="MEDIUM"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="ff3333cc"/>
+      <attribute name="color" type="hex" value="ff99d1db"/>
       <attribute name="drawingType" type="string" value="default"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="128"/>
-      <attribute name="size" type="string" value="THIN"/>
+      <attribute name="size" type="string" value="MEDIUM"/>
       <attribute name="style" type="string" value="plain"/>
     </data>
     <data name="playObject">
@@ -265,11 +299,11 @@
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="selectPdfTextLinear">
-      <attribute name="color" type="hex" value="ff000000"/>
+      <attribute name="color" type="hex" value="ffeba0ac"/>
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="selectPdfTextRect">
-      <attribute name="color" type="hex" value="ff000000"/>
+      <attribute name="color" type="hex" value="3b000000"/>
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="selectRect">
